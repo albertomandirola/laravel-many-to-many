@@ -6,7 +6,8 @@
             <div class="col-12">
                 <div class="content d-flex align-items-center">
                     <div class="fw-bold">Aggiungi un nuovo progetto: </div>
-                    <a class="btn btn-primary fw-bold m-3" href="{{ route('admin.types.create') }}" role="button">Aggiungi</a>
+                    <a class="btn btn-primary fw-bold m-3" href="{{ route('admin.technologies.create') }}"
+                        role="button">Aggiungi</a>
                 </div>
             </div>
             <div class="col-12">

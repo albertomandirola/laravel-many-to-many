@@ -12,6 +12,6 @@ class Technology extends Model
 
     protected $fillable = ['name', 'badge_color', 'slug'];
     public function projects(){
-       return $this->belongsToMany('App/Models/Project');
+       return $this->belongsToMany(Project::class);
     }
 }

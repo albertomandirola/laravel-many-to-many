@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Type;
 use App\Models\Technology;
+use App\Models\Project;
 
 class ProjectController extends Controller
 {
@@ -62,7 +62,7 @@ class ProjectController extends Controller
         $project->save();
 
         if ($request->has('technologies')) {
-            $project->technology()->attach($form_data['technologies']);
+            $project->technologies()->attach($form_data['technologies']);
         }
 
         return redirect()->route('admin.projects.index');
@@ -123,7 +123,7 @@ class ProjectController extends Controller
 
     // Aggiorna i dati del progetto con i nuovi dati
     $project->update($form_data);
-    
+
     if ($request->has('technologies')) {
         $project->technology()->sync($form_data['technologies']);
     } else {

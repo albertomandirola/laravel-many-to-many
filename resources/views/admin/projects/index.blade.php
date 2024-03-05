@@ -18,6 +18,7 @@
                             <th scope="col">Titolo</th>
                             <th scope="col">slug</th>
                             <th scope="col">link</th>
+                            <th scope="col">Technologies</th>
                             <th scope="col">Tipo di progetto</th>
                             <th scope="col">Tools</th>
                         </tr>
@@ -29,6 +30,16 @@
                                 <td>{{ $project->title }}</td>
                                 <td>{{ $project->slug }}</td>
                                 <td>{{ $project->link }}</td>
+                                <td>
+                                    @forelse ($project->technologies as $technology)
+                                        <span class="badge rounded-pill text-bg-{{ $technology->badge_color }}"
+                                            aria-label="{{ $technology->name }}">
+                                            {{ $technology->name }}
+                                        </span>
+                                    @empty
+                                        <span>Il progetto non ha tecnologie associate</span>
+                                    @endforelse
+                                </td>
                                 <td>{{ $project->type ? $project->type->name : 'Non inserito' }}</td>
                                 <td>
                                     <div class="d-flex align-items-center">
