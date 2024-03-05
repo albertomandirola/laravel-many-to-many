@@ -19,6 +19,7 @@
 
                         <a href="{{ route('admin.projects.index') }}">projects</a>
                         <a href="{{ route('admin.types.index') }}">types</a>
+                        <a href="{{ route('admin.technologies.index') }}">technologies</a>
 
                     </div>
                 </div>
